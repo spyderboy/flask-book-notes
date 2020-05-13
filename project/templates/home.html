@@ -4,22 +4,26 @@
 
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">My Items</h4>
-    {% if items[0] == NULL %}
-    <p class="card-text">No items are added yet, <a href="{{ url_for('items.add_item') }}">add a new item</a>.</p>
+    <h4 class="card-title">My Books</h4>
+    {% if books[0] == NULL %}
+    <p class="card-text">No books are added yet, <a href="{{ url_for('books.add_book') }}">add a new book</a>.</p>
     {% else %}
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Read on Date</th>
           <th>Notes</th>
         </tr>
       </thead>
       <tbody>
-        {% for item in items %}
+        {% for book in books %}
         <tr>
-          <td>{{ item.name }}</td>
-          <td>{{ item.notes }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.read_date }}</td>
+          <td>{{ book.notes }}</td>
         </tr>
         {% endfor %}
       </tbody>

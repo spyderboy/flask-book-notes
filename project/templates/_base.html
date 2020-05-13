@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{ url_for('home') }}">
           <img src="{{ url_for('static', filename='images/favicon.png') }}" width="30" height="30" class="d-inline-block align-top" alt="Flask App Blueprint">
-          Flask App Blueprint
+          Book Notes
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,11 +23,11 @@
           <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
             <a class="nav-link" href="{{ url_for('home') }}">Home</a>
           </li>
-          <li class="nav-item {% if request.path == url_for('items.all_items') %}active{% endif %}">
-            <a class="nav-link" href="{{ url_for('items.all_items') }}">All Items</a>
+          <li class="nav-item {% if request.path == url_for('books.all_books') %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('books.all_books') }}">All Books</a>
           </li>
-          <li class="nav-item {% if request.path == url_for('items.add_item') %}active{% endif %}">
-            <a class="nav-link" href="{{ url_for('items.add_item') }}">Add Items</a>
+          <li class="nav-item {% if request.path == url_for('books.add_book') %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('books.add_book') }}">Add Books</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -120,7 +120,7 @@
           <li class="nav-item"><a class="nav-link active" href="#">FAQ</a></li>
           <li class="nav-item"><a class="nav-link active" href="#">Contact / Feedback</a></li>
         </ul>
-        <p class="text-center"><a href="https://github.com/jelmerdejong/flask-app-blueprint">Created by Flask App Blueprint.</a></p>
+        <p class="text-center">This is adapted from:<a href="https://github.com/jelmerdejong/flask-app-blueprint">Created by Flask App Blueprint.</a></p>
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+{% block title %}All Books{% endblock %}
+{% block content %}
+
+{% if books[0] == NULL %}
+<div class="panel-body">
+  <p>No books are added yet, <a href="{{ url_for('books.add_book') }}">add a new book</a>.</p>
+</div>
+{% else %}
+<table class="table table-stripe">
+  <thead>
+    <tr>
+      <th class="border-top-0">Title</th>
+      <th class="border-top-0">Author</th>
+      <th class="border-top-0">Read on Date</th>
+      <th class="border-top-0">Notes</th>
+      <th class="border-top-0"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in books %}
+    <tr>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.read_date }}</td>
+      <td>
+        {{ book.notes }}
+      </td>
+      <td>
+        <a href="{{ url_for('books.edit_book', books_id=book.id) }}">Edit</a>
+        <a href="{{ url_for('books.delete_book', books_id=book.id) }}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% endblock %}

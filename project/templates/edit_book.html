@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+{% block title %}Edit Book{% endblock %}
+{% from "_formshelper.html" import render_field %}
+{% block content %}
+
+<form action="{{ url_for('books.edit_book', books_id=book.Books.id) }}" method="post" name="editbooksform">
+    {{ form.csrf_token }}
+    <div class="form-group">
+      {{ form.title.label }}
+      {{ render_field(form.title, class="form-control", value=book.Books.title) }}
+    </div>
+    <div class="form-group">
+      {{ form.author.label }}
+      {{ render_field(form.author, class="form-control", value=book.Books.author) }}
+    </div>
+    <div class="form-group">
+      {{ form.read_date.label }}
+      {{ render_field(form.read_date, class="form-control", value=book.Books.read_date) }}
+    </div>
+    <div class="form-group">
+      {{ form.notes.label }}
+      {{ render_field(form.notes, class="form-control", value=book.Books.notes) }}
+    </div>
+    <input type="submit" value="Edit Book" class="btn btn-lg btn-success">
+</form>
+
+{% endblock %}

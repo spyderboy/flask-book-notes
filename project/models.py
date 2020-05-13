@@ -17,6 +17,7 @@ class User(db.Model):
     current_logged_in = db.Column(db.DateTime, nullable=True)
     role = db.Column(db.String, default='user')
     items = db.relationship('Items', backref='user', lazy='dynamic')
+    books = db.relationship('Books', backref='user', lazy='dynamic')
 
     def __init__(self, email, password, email_confirmation_sent_on=None, role='user'):
         self.email = email
@@ -73,6 +74,7 @@ class User(db.Model):
 
 class Items(db.Model):
     __tablename__ = 'items'
+    __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     notes = db.Column(db.String, nullable=True)
@@ -80,6 +82,24 @@ class Items(db.Model):
 
     def __init__(self, name, notes, user_id):
         self.name = name
+        self.notes = notes
+        self.user_id = user_id
+
+    def __repr__(self):
+        return '<id {}>'.format(self.id)
+class Books(db.Model):
+    __tablename__ = 'books'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    author = db.Column(db.String, nullable=True)
+    read_date = db.Column(db.String, nullable=True)
+    notes = db.Column(db.String, nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __init__(self, title, author, read_date, notes, user_id):
+        self.title = title
+        self.author = author
+        self.read_date = read_date
         self.notes = notes
         self.user_id = user_id
 

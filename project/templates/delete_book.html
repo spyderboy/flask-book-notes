@@ -1,0 +1,30 @@
+
+{% extends "_base.html" %}
+{% block title %}Delete Book{% endblock %}
+{% block content %}
+
+<form action="{{ url_for('books.delete_book', books_id=books[0].id) }}" method="post" name="deletebooksform">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="border-top-0">Title</th>
+            <th class="border-top-0">Author</th>
+            <th class="border-top-0">Read on Date</th>
+            <th class="border-top-0">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in books %}
+          <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.read_date }}</td>
+            <td>{{ book.notes }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    <input type="submit" value="Delete Book" class="btn btn-lg btn-success">
+</form>
+
+{% endblock %}

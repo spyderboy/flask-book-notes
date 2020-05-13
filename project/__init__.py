@@ -20,7 +20,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "users.login"
 
-from project.models import User, Items
+from project.models import User, Items, Books
 
 
 @login_manager.user_loader
@@ -31,9 +31,11 @@ def load_user(user_id):
 # BLUEPRINTS
 from project.users.views import users_blueprint
 from project.items.views import items_blueprint
+from project.books.views import books_blueprint
 
 app.register_blueprint(users_blueprint)
 app.register_blueprint(items_blueprint)
+app.register_blueprint(books_blueprint)
 
 
 # ROUTES
@@ -42,8 +44,8 @@ app.register_blueprint(items_blueprint)
 def home():
     """Render homepage"""
 
-    all_user_items = Items.query.filter_by(user_id=current_user.id)
-    return render_template('home.html', items=all_user_items)
+    all_user_books = Books.query.filter_by(user_id=current_user.id)
+    return render_template('home.html', books=all_user_books)
 
 
 # ERROR PAGES
