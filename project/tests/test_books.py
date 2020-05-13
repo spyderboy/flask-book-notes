@@ -1,7 +1,7 @@
 import unittest
 
 from project import app, db, mail
-from project.models import Items, User
+from project.models import Books, User
 
 
 class UserTests(unittest.TestCase):
@@ -59,7 +59,7 @@ class UserTests(unittest.TestCase):
     def logout_user(self):
         self.app.get('/logout', follow_redirects=True)
 
-    def add_items(self):
+    def add_books(self):
         self.register_user()
         self.register_user2()
         user1 = User.query.filter_by(email='user1@flaskappblueprint.com').first()
