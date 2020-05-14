@@ -1,3 +1,15 @@
+This project was inspired by a test task a potential employer sent me. The requirements:
+* Host final project on Heroku with source code on GitHub
+* Use SQLAlchemy to translate model to database entries
+* Migration via Flask-Migrate
+* The Flask app should have a virtualenv and a requirements.txt file that allows for the environment to be built from scratch on other systems
+* The Flask application should use Blueprints and have at least one Blueprint for authentication and one Blueprint for other operations
+* Use email to confirm new user registration
+* Once logged in, show a list of the user's books
+* Allow CRUD of Title, Author, Date Read, and Notes
+
+In my research I stumbled on the MVP project by jelmerdejong (see below). I am working in a Windows environment and learned a few things about that. I'll write up a "Getting Started" for the Windows version soon.
+----------------------------------------------------
 # Flask App Blueprint: the fast way to start your MVP
 [![CircleCI](https://circleci.com/gh/jelmerdejong/flask-app-blueprint.svg?style=shield)](https://circleci.com/gh/jelmerdejong/flask-app-blueprint)
 
